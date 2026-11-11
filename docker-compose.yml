@@ -1,0 +1,14 @@
+services:
+  break-daemon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: workspace-wellbeing-daemon
+    restart: unless-stopped
+    environment:
+      - WELLBEING_DB_PATH=/data/wellness_local.db
+    volumes:
+      - wellbeing-data:/data
+
+volumes:
+  wellbeing-data:
